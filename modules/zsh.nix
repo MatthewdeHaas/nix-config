@@ -75,6 +75,7 @@
 		enable = true;
 		enableZshIntegration = true; # Change 'Ingegration' to 'Integration'
 	};
+
 	# Set PATH based on flake file in a project directory 
 	programs.direnv = {
 		enable = true;
