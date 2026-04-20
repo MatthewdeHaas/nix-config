@@ -13,14 +13,20 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, home-manager, ... }: 
-		let
-			system = "aarch64-darwin";
-			pkgs = nixpkgs.legacyPackages.${system};
-		in {
-			homeConfigurations."matthewdehaas" = home-manager.lib.homeManagerConfiguration {
-			inherit pkgs;
-			modules = [ ./modules/home.nix ];
+	outputs = { self, nixpkgs, home-manager, ... }: {
+		homeConfigurations = {
+			# Mac OS 	
+			"matthewdehaas" = home-manager.lib.homeManagerConfiguration {
+				pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+				modules = [ ./modules/home.nix ];
+			};
+
+			# NixOS
+			"manix" = home-manager.lib.homeManagerConfiguration {
+				pkgs = nixpkgs.legacyPackages.x86_64-linux;
+				modules = [ ./modules/home.nix ];
+			};
 		};
-	    };
+	};
+	
 }
