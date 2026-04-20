@@ -1,0 +1,13 @@
+*.env
+.secrets/
+secrets.nix
+
+result
+result-*
+
+.DS_Store
+Thumbs.db
+
+*.swp
+*.swo
+.netrwhist
