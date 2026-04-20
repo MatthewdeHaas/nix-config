@@ -13,15 +13,14 @@
 		};
 	};
 
-	outputs = {self, nixpkgs, home-manager, ... }: {
-		let 
+	outputs = { self, nixpkgs, home-manager, ... }: 
+		let
 			system = "aarch64-darwin";
 			pkgs = nixpkgs.legacyPackages.${system};
 		in {
-			homeConfigurations."matt" = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-				modules = [ .modules/home.nix ]
-			};
+			homeConfigurations."matthewdehaas" = home-manager.lib.homeManagerConfiguration {
+			inherit pkgs;
+			modules = [ ./modules/home.nix ];
 		};
-	};
+	    };
 }
