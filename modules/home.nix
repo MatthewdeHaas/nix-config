@@ -47,6 +47,10 @@
 		meson
 		gcc
 
+		# Security/Secrets
+		gnupg
+		pinentry_mac
+
 		# Cloud Infrastructure
 		doctl
 		kubo
@@ -58,6 +62,12 @@
 		poppler
 
 	];
+
+	services.gpg-agent = {
+		enable = true;
+		defaultCacheTtl = 1800;
+		pinentryPackage = pkgs.pinentry_mac;
+	};
 
 	# Let Home Manager install and manage itself 
 	programs.home-manager.enable = true;
