@@ -17,7 +17,7 @@
 		# Settings
 		settings = {
 			# Window & Padding
-			window_padding_width = 10;
+			window_padding_width = 2;
 			hide_window_decorations = "yes";
 
 			# Tab Bar
