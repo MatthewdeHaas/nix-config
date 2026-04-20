@@ -15,7 +15,4 @@
 		core.editor = "nvim";
 		signing.format = null;	
 	};
-
-	# block large files
-	lfs.enable = true;
 }
