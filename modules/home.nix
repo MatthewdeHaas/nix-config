@@ -10,6 +10,7 @@
 		./git.nix
 		./eza.nix
 		./zathura.nix
+		./tex.nix
 	];
 
 	home.username = "matthewdehaas";
