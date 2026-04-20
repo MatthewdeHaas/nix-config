@@ -1,6 +1,11 @@
 { pkgs, ... };
 
 {
+
+	imports = [
+		./neovim.nix
+	];
+
 	home.username = "matt";
 	home.homeDirectory = "/User/matthewdehaas";
 	home.stateVersion = "23.11";
