@@ -17,7 +17,7 @@
 
 	# Global packages
 	home.packages = with pkgs; [
-		(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+		nerd-fonts.jetbrains-mono
 	];
 
 	# Let Home Manager install and manage itself 
