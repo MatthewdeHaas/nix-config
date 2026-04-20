@@ -66,6 +66,7 @@
 				home-manager switch --flake ~/nix-config#"$profile"
 			}
 			export GPG_TTY=$TTY
+			export DIRENV_LOG_FORMAT=""
 		'';
 
 	};
