@@ -1,4 +1,4 @@
-{ pkgs, ... };
+{ pkgs, ... }:
 
 {
 
@@ -31,13 +31,6 @@
       py = "python3";
       c = "clear";
       r = "Rscript";
-      tlog = "tspin";
-      dashboard = "btop";
-      l = "eza --icons --group-directories-first";
-      ls = "eza --icons --group-directories-first";
-      ll = "eza -lh --icons --group-directories-first --git";
-      la = "eza -a --icons --group-directories-first";
-      lt = "eza --tree --level=2 --icons";
       nixswitch = "home-manager switch --flake ~/nix-config#matt";
     };
 
@@ -78,5 +71,11 @@
 	# Tools Zsh evals
 	programs.starship.enable = true;
 	programs.starship.enableZshIngegration = true;
+
+	# Set PATH based on flake file in a project directory 
+	programs.direnv = {
+		enable = true;
+		nix-direnv.enable = true;
+	};
 
 }
