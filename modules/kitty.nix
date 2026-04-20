@@ -17,8 +17,8 @@
 		# Settings
 		settings = {
 			# Window & Padding
-			window_padding_width = 2;
-			hide_window_decorations = "yes";
+			window_padding_width = 8;
+			hide_window_decorations = "no";
 
 			# Tab Bar
 			tab_bar_style = "powerline";
