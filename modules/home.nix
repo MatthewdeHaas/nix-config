@@ -12,7 +12,7 @@
 	];
 
 	home.username = "matthewdehaas";
-	home.homeDirectory = "/User/matthewdehaas";
+	home.homeDirectory = "/Users/matthewdehaas";
 	home.stateVersion = "23.11";
 
 	# Global packages

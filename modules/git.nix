@@ -3,17 +3,19 @@
 {
 	programs.git = {
 		enable = true;
-		userName = "Matthew deHaas";
-		userEmail = "mattdehaas28@gmail.com";
-
-		# block large files
-		lfs.enable = true;
-
-		extraConfig = {
-			init.defaultBranch = "main";
-			push.autoSetupRemote = true;
-			core.editor = "nvim";
+		settings = {
+			user = {
+				name = "Matthew deHaas";
+				email = "mattdehaas28@gmail.com";
+			};
 		};
-		
+
+		init.defaultBranch = "main";
+		push.autoSetupRemote = true;
+		core.editor = "nvim";
+		signing.format = null;	
 	};
+
+	# block large files
+	lfs.enable = true;
 }

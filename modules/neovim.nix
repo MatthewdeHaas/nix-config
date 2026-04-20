@@ -8,7 +8,8 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-
+		withRuby = false;
+		withPython3 = false;
 		# Install Neovim dependencies
 		extraPackages = with pkgs; [
 			ripgrep
@@ -68,7 +69,7 @@
 		];
 
 		# Extra Neovim config
-		extraLuaConfig = ''
+		initLau = ''
       -- Leader keys
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "
