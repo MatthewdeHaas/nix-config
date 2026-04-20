@@ -37,7 +37,7 @@
 		(python3.withPackages (ps: with ps; [ pip requests ]))
 		uv
 		R
-		solidity
+		solc
 
 		# Development Tools
 		git
