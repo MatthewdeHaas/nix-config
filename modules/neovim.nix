@@ -5,7 +5,7 @@
 	programs.neovim = {
 
 		enable = true;
-		defaultEditor = true;
+		defaultEditor = true;	
 		viAlias = true;
 		vimAlias = true;
 		withRuby = false;
@@ -19,57 +19,42 @@
 		];
 
 		plugins = with pkgs.vimPlugins; [
-
-			# Syntax highlighting
-			{
-        plugin = nvim-treesitter.withAllGrammars;
-        type = "lua";
-        config = "require('nvim-treesitter.configs').setup({ highlight = { enable = true } })";
-      }
-
-			# Fuzzy finder
+			nvim-treesitter.withAllGrammars
 			telescope-nvim
 			plenary-nvim
-
-			# Theme
-			{
-        plugin = catppuccin-nvim;
-        type = "lua";
-        config = ''
-          require("catppuccin").setup({
-            flavour = "mocha",
-            integrations = {
-              treesitter = true,
-              telescope = { enabled = true },
-              bufferline = true,
-              native_lsp = { enabled = true },
-              vimtex = true,
-            }
-          })
-          vim.cmd.colorscheme "catppuccin"
-        '';
-      }
-
-
-			# Tabs + Bufferline
-			{
-				plugin = bufferline-nvim;
-				type = "lua";
-				config = "require('bufferline').setup({})";
-			}
-			
-			# Iconography
+			catppuccin-nvim
+			bufferline-nvim
 			nvim-web-devicons
-
-			# Markdown preview
 			markdown-preview-nvim
-
-			# Latex
 			vimtex
 		];
 
 		# Extra Neovim config
 		initLua = ''
+
+			-- Treesitter
+			require('nvim-treesitter.configs').setup({ 
+				highlight = { enable = true } 
+			})
+
+			-- Catppuccin
+			require("catppuccin").setup({
+				flavour = "mocha",
+				integrations = {
+					treesitter = true,
+					telescope = { enabled = true },
+					bufferline = true,
+					native_lsp = { enabled = true },
+					vimtex = true,
+				}
+			})
+			vim.cmd.colorscheme "catppuccin"
+
+
+			-- Tabs + Bufferline
+			require('bufferline').setup({})
+
+
       -- Leader keys
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "
