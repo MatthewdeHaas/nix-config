@@ -4,6 +4,8 @@
 
 	imports = [
 		./neovim.nix
+		./zsh.nix
+		./kitty.nix
 	];
 
 	home.username = "matt";
