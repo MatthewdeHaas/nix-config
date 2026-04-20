@@ -60,6 +60,8 @@
 		mpv
 		zathura
 		poppler
+		ghostscript
+		tesseract
 
 	];
 
