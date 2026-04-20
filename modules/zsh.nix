@@ -68,6 +68,7 @@
 				local profile=''${1:-matthewdehaas}
 				home-manager switch --flake ~/nix-config#"$profile"
 			}
+			export GPG_TTY=$TTY
 		'';
 
 	};

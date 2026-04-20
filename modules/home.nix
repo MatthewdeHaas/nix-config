@@ -67,6 +67,9 @@
 		enable = true;
 		defaultCacheTtl = 1800;
 		pinentryPackage = pkgs.pinentry_mac;
+		extraConfig = ''
+			pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+		'';
 	};
 
 	# Let Home Manager install and manage itself 
