@@ -69,7 +69,7 @@
 		];
 
 		# Extra Neovim config
-		initLau = ''
+		initLua = ''
       -- Leader keys
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "
