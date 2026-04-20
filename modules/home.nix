@@ -11,7 +11,7 @@
 		./eza.nix
 	];
 
-	home.username = "matt";
+	home.username = "matthewdehaas";
 	home.homeDirectory = "/User/matthewdehaas";
 	home.stateVersion = "23.11";
 
