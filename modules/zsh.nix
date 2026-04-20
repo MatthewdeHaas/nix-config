@@ -31,7 +31,7 @@
 			py = "python3";
 			c = "clear";
 			r = "Rscript";
-			nixswitch = "home-manager switch --flake ~/nix-config#matt";
+			nixswitch = "home-manager switch --flake ~/nix-config#matthewdehaas";
 		};
 
 		# Shell history
