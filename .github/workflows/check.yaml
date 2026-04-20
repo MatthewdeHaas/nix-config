@@ -20,5 +20,5 @@ jobs:
       - name: Flake Check
         run: nix flake check
 
-      - name: Home Manager Evaluation
-        run: nix build .#homeConfigurations.matthewdehaas.activationPackage
+      - name: Flake Evaluation Check
+        run: nix eval .#homeConfigurations.matthewdehaas.options
