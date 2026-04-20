@@ -2,7 +2,7 @@
 {
 	description = "Matt's Universal Nix Configuration file";
 
-	inupts = {
+	inputs = {
 		# Where packages are retrieved from
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
