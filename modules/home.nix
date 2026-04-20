@@ -6,6 +6,7 @@
 		./neovim.nix
 		./zsh.nix
 		./kitty.nix
+		./tmux.nix
 	];
 
 	home.username = "matt";
