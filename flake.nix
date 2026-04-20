@@ -1,6 +1,6 @@
 # Tells nix to fetch Nixpkgs and Home Manager Libraries
 {
-	description: "Matt's Universal Nix Configuration file";
+	description = "Matt's Universal Nix Configuration file";
 
 	inupts = {
 		# Where packages are retrieved from
