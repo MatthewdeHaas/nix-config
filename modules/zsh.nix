@@ -5,7 +5,7 @@
 	programs.zsh = {
 		enable = true;
 		enableCompletion = true;
-		autosuggestion.enable = true;
+		autosuggestion.enable = false;
 		syntaxHighlighting.enable = true;
 
 		# Oh My Zsh
@@ -60,10 +60,6 @@
 			}
 			# Only autocomplete image files for show
 			compdef '_files -g "*.{png,jpg,jpeg,gif,webp,svg}"' show
-
-			# Mocha-specific Autosuggestion style
-			ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70"
-			ZSH_AUTOSUGGEST_HISTORY_IGNORE="c|ls|cd|exit"
 
 			nixswitch() {
 				local profile=''${1:-matthewdehaas}
