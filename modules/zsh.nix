@@ -31,7 +31,6 @@
 			py = "python3";
 			c = "clear";
 			r = "Rscript";
-			nixswitch = "home-manager switch --flake ~/nix-config#matthewdehaas";
 		};
 
 		# Shell history
@@ -64,6 +63,11 @@
 			# Mocha-specific Autosuggestion style
 			ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70"
 			ZSH_AUTOSUGGEST_HISTORY_IGNORE="c|ls|cd|exit"
+
+			nixswitch() {
+				local profile=''${1:-matthewdehaas}
+				home-manager switch --flake ~/nix-config#"$profile"
+			}
 		'';
 
 	};
