@@ -8,11 +8,11 @@
 				name = "Matthew deHaas";
 				email = "mattdehaas28@gmail.com";
 			};
-		};
 
-		init.defaultBranch = "main";
-		push.autoSetupRemote = true;
-		core.editor = "nvim";
-		signing.format = null;	
+			init.defaultBranch = "main";
+			push.autoSetupRemote = true;
+			core.editor = "nvim";
+			signing.format = null;	
+		};
 	};
 }
