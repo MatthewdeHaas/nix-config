@@ -38,6 +38,7 @@
 		uv
 		R
 		solc
+		uv
 
 		# Development Tools
 		git
