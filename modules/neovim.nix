@@ -33,9 +33,14 @@
 		initLua = ''
 
 			-- Treesitter
-			require('nvim-treesitter.configs').setup({ 
-				highlight = { enable = true } 
-			})
+			local status, treesitter = pcall(require, "nvim-treesitter.configs")
+			if status then
+				treesitter.setup({
+					highlight = { enable = true }
+				})
+			else
+				print("Treesitter not found yet, will load via packadd")
+			end
 
 			-- Catppuccin
 			require("catppuccin").setup({
