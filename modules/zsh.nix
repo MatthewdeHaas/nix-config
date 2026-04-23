@@ -72,22 +72,29 @@
 
 				while getopts "m:" opt; do
 					case $opt in
-						m) COMMIT_MSG="$OPTARG" ;;
-						*) echo "Usage $0 [-m 'commit message']" && exit 1 ;;
+						m) commit_msg="$OPTARG" ;;
+						*) echo "Usage: nixsync [-m 'message'] [profile]"; return 1 ;;
 					esac
 				done
 
 				shift $((OPTIND - 1))
+				local target_profile="$1"
 
 				cd ~/nix-config || return
 				git add .
 
-				if nixswitch "@0"; then
-					echo "--- Switch Successful ---"
+				if [[ -n "$target_profile" ]]; then
+					nixswitch "$target_profile"
 				else
-					echo "--- Switch Failed! Aborting Git sync. ---"
+					nixswitch
+				fi
+
+				if [[ $? -ne 0 ]]; then
+					echo "--- Switch Failed! ---"
 					return 1
 				fi
+
+				echo "-- Switch Successful! --"
 
 				if git diff-index --quiet HEAD --; then
 					echo "--- No changes detected. Nothing to commit. ---"
