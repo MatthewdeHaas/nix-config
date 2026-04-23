@@ -66,7 +66,6 @@
 				home-manager switch --flake ~/nix-config#"$profile"
 			}
 
-
 			nixsync() {
 				local OPTIND opt msg
 				local commit_msg=""
@@ -80,15 +79,15 @@
 
 				shift $((OPTIND - 1))
 
+				cd ~/nix-config || return
+				git add .
+
 				if nixswitch "@0"; then
 					echo "--- Switch Successful ---"
 				else
 					echo "--- Switch Failed! Aborting Git sync. ---"
 					return 1
 				fi
-
-				cd ~/nix-config || return
-				git add .
 
 				if git diff-index --quiet HEAD --; then
 					echo "--- No changes detected. Nothing to commit. ---"
