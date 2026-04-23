@@ -14,7 +14,7 @@
 	];
 
 	home.username = "matthewdehaas";
-	home.homeDirectory = "/Users/matthewdehaas";
+	home.homeDirectory = "/Users/matthewdehaas/Dev";
 	home.stateVersion = "23.11";
 
 	# Global packages
