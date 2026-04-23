@@ -45,7 +45,7 @@
 		# Development Tools
 		git
 		tmux
-		starship
+		# starship
 		cmake
 		meson
 		gcc
