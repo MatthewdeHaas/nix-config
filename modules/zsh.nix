@@ -48,7 +48,8 @@
 		initContent = ''
 			# Set cursor to steady beam in precmd
 			precmd() { echo -ne '\e[6 q'; }
-			PROMPT='matt@%c '
+			# Catppuccin Mocha Terminal Prompt: Lavender matt @ Sapphire directory
+			PROMPT='%F{183}matt%f@%F{110}%c%f
 
 			# Python UV Management
 			export UV_PYTHON_PREFERENCE=only-managed
