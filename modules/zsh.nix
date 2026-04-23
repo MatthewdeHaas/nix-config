@@ -117,12 +117,6 @@
 
 	};
 
-	# Tools Zsh evals
-	# programs.starship = {
-	# 	enable = true;
-	# 	enableZshIntegration = true;
-	# };
-
 	# Set PATH based on flake file in a project directory 
 	programs.direnv = {
 		enable = true;

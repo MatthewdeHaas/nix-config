@@ -34,18 +34,16 @@
 		pass
 
 		# Languages + Runtimes
-		nodejs_22
+		nodejs_25
 		pnpm
-		(python3.withPackages (ps: with ps; [ pip requests ]))
+		python314
 		uv
 		R
 		solc
-		uv
 
 		# Development Tools
 		git
 		tmux
-		# starship
 		cmake
 		meson
 		gcc
