@@ -48,6 +48,7 @@
 		initContent = ''
 			# Set cursor to steady beam in precmd
 			precmd() { echo -ne '\e[6 q'; }
+			PROMPT='matt@%c '
 
 			# Python UV Management
 			export UV_PYTHON_PREFERENCE=only-managed
