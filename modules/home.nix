@@ -24,6 +24,7 @@
 		bat
 		fzf
 		ripgrep
+		fd
 		htop
 		fastfetch
 		pstree

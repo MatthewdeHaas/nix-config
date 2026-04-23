@@ -9,7 +9,10 @@
 			collection-mathscience
 			amsmath
 			physics
+			latexmk
 			;
 		})
+		coreutils
+		gnused
 	];
 }

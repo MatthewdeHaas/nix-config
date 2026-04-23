@@ -86,8 +86,10 @@
 			end, { desc = "Markdown Preview (dark)" })
 
 			-- VimTeX Config
-			vim.g.vimtex_view_method = "skim" -- Keep as skim for Mac
+			vim.g.vimtex_view_method = "skim"
 			vim.g.vimtex_compiler_method = "latexmk"
+			vim.g.vimtex_compiler_latexmk_engines = { _ = "xelatex" }
+			vim.g.vimtex_build_dir = ".build"
 			vim.g.vimtex_quickfix_mode = 0
 			vim.g.vimtex_compiler_latexmk = {
 				out_dir = ".build",
