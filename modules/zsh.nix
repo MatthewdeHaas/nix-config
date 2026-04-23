@@ -62,9 +62,11 @@
 			# Only autocomplete image files for show
 			compdef '_files -g "*.{png,jpg,jpeg,gif,webp,svg}"' show
 
+			NIX_CONFIG_DIR="$HOME/Dev/nix-config"
+
 			nixswitch() {
 				local profile=''${1:-matthewdehaas}
-				home-manager switch --flake ~/nix-config#"$profile"
+				home-manager switch --flake "$NIX_CONFIG_DIR#$profile"
 			}
 
 			nixsync() {
@@ -81,7 +83,7 @@
 				shift $((OPTIND - 1))
 				local target_profile="$1"
 
-				cd ~/nix-config || return
+				cd "$NIX_CONFIG_DIR" || return
 				git add .
 
 				if [[ -n "$target_profile" ]]; then
