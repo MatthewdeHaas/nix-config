@@ -140,36 +140,27 @@
 			})
 
 			ls.add_snippets("tex", {
-				-- `mk` for math mode
+				-- `mk` for math mode ($$)
 				s({trig = "mk", wordTrig = true, snippetType = "autosnippet"},
-					fmta("$<>$", { i(1) })
+				  fmta("$<>$", { i(1) })
 				),
 
-				-- `dm` for multiline math mode
+				-- `dm` for multiline math mode (\[\])
 				s({trig = "dm", snippetType = "autosnippet"},
-					fmta([[
-						\[
-							<>
-						\]
-					]], { i(1) })
+				  fmta("\\[\n\t<>\n\\]", { i(1) })
 				),
 
 				-- `ali` for aligned equations
 				s({trig = "ali", snippetType = "autosnippet"},
-					fmta([[
-						\begin{align*}
-							<>
-						\end{align*}
-					]], { i(1) })
+				  fmta("\\begin{align*}\n\t<>\n\\end{align*}", { i(1) })
 				),
-
+				
+				-- `\\` for creating fractions  
 				s({trig = "([^%s/]+)/", trigEngine = "pattern", snippetType = "autosnippet"},
-					fmta([[
-						\frac{<>}{<>}
-					]], {
-						f(function(_, snip) return snip.captures[1] end),
-						i(1),
-					}),
+				  fmta("\\frac{<>}{<>}", {
+				    f(function(_, snip) return snip.captures[1] end),
+				    i(1),
+				  })
 				),
 
 
