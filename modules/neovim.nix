@@ -31,7 +31,6 @@
 			nvim-cmp
 			cmp-nvim-lsp
 			cmp_luasnip
-
 		];
 
 		# Extra Neovim config
@@ -129,8 +128,16 @@
 				sources = { { name = "luasnip" } },
 			})
 
-			require("luasnip.loaders.from_lua").load({
-				paths = vim.fn.stdpath("config") .. "/luasnip"
+			-- Snippets
+			local ls = require("luasnip")
+			local s = ls.snippet
+			local i = ls.insert_node
+			local fmta = require("luasnip.extras.fmt").fmta
+
+			ls.add_snippets("tex", {
+				s({trig = "mk", wordTrig = true, snippetType = "autosnippet"},
+					fmta("$<>$", { i(1) })
+				),
 			})
 
 			-- Settings
@@ -180,7 +187,4 @@
     '';
   };
 
-	home.file.".config/nvim/luasnip/tex.lua" = {
-		source = ./snippets/tex.lua;
-	};
 }
