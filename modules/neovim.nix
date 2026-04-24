@@ -27,6 +27,11 @@
 			nvim-web-devicons
 			markdown-preview-nvim
 			vimtex
+			luasnip
+			nvim-cmp
+			cmp-nvim-lsp
+			cmp_luasnip
+
 		];
 
 		# Extra Neovim config
@@ -102,6 +107,32 @@
 				},
 			}
 
+			-- Wire Luasnips
+			local cmp = require("cmp")
+			local luasnip = require("luasnip")
+
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						luasnip.lsp_expand(args.body)
+					end,
+				},
+				mapping = cmp.mapping.preset.insert({
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if luasnip.expand_or_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+				}),
+				sources = { { name = "luasnip" } },
+			})
+
+			require("luasnip.loaders.from_lua").load({
+				paths = vim.fn.stdpath("config") .. "/luasnip"
+			})
+
 			-- Settings
 			vim.opt.number = true
 			vim.opt.spell = true
@@ -148,4 +179,8 @@
 			})
     '';
   };
+
+	home.file.".config/nvim/luasnip/tex.lua" = {
+		source = ./snippets/tex.lua;
+	};
 }
