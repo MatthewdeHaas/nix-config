@@ -134,6 +134,10 @@
 			local i = ls.insert_node
 			local fmta = require("luasnip.extras.fmt").fmta
 
+			ls.setup({
+				enable_autosnippets = true,
+			})
+
 			ls.add_snippets("tex", {
 				s({trig = "mk", wordTrig = true, snippetType = "autosnippet"},
 					fmta("$<>$", { i(1) })
