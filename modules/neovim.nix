@@ -131,6 +131,7 @@
 			-- Snippets
 			local ls = require("luasnip")
 			local s = ls.snippet
+			local f = ls.function_node
 			local i = ls.insert_node
 			local fmta = require("luasnip.extras.fmt").fmta
 
@@ -153,7 +154,6 @@
 					]], { i(1) })
 				),
 
-
 				-- `ali` for aligned equations
 				s({trig = "ali", snippetType = "autosnippet"},
 					fmta([[
@@ -161,6 +161,15 @@
 							<>
 						\end{align*}
 					]], { i(1) })
+				),
+
+				s({trig = "([^%s/]+)/", trigEngine = "pattern", snippetType = "autosnippet"},
+					fmta([[
+						\frac{<>}{<>}
+					]], {
+						f(function(_, snip) return snip.captures[1] end),
+						i(1),
+					}),
 				),
 
 
