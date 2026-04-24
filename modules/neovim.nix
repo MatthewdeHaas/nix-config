@@ -139,8 +139,18 @@
 			})
 
 			ls.add_snippets("tex", {
+				-- `mk` for math mode
 				s({trig = "mk", wordTrig = true, snippetType = "autosnippet"},
 					fmta("$<>$", { i(1) })
+				),
+
+				-- `dm` for multiline math mode
+				s({trig = "dm", snippetType = "autosnippet"},
+					fmta([[
+						\[
+							<>
+						\]
+					]], { i(1) })
 				),
 			})
 
