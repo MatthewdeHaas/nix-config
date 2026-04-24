@@ -156,11 +156,11 @@
 				),
 				
 				-- `\\` for creating fractions  
-				s({trig = "([^%s/]+)/", trigEngine = "pattern", snippetType = "autosnippet"},
-				  fmta("\\frac{<>}{<>}", {
-				    f(function(_, snip) return snip.captures[1] end),
-				    i(1),
-				  })
+				s({trig = "([%w_^]+)/", trigEngine = "pattern", snippetType = "autosnippet"},
+					fmta("\\frac{<>}{<>}", {
+						f(function(_, snip) return snip.captures[1] end),
+						i(1),
+					})
 				),
 
 
