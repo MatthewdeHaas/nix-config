@@ -152,6 +152,18 @@
 						\]
 					]], { i(1) })
 				),
+
+
+				-- `ali` for aligned equations
+				s({trig = "ali", snippetType = "autosnippet"},
+					fmta([[
+						\begin{align*}
+							<>
+						\end{align*}
+					]], { i(1) })
+				),
+
+
 			})
 
 			-- Settings
