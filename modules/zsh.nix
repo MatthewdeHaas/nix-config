@@ -62,7 +62,7 @@
 			# Only autocomplete image files for show
 			compdef '_files -g "*.{png,jpg,jpeg,gif,webp,svg}"' show
 
-			NIX_CONFIG_DIR="$HOME/Dev/nix-config"
+			NIX_CONFIG_DIR="$HOME/nix-config"
 
 			nixswitch() {
 				local profile=''${1:-matthewdehaas}
