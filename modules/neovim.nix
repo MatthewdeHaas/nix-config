@@ -243,8 +243,10 @@ in
           svelte = "svelte",
         },
       })
+			vim.treesitter.language.register('typescript', 'svelte')
+			vim.treesitter.language.register('javascript', 'svelte')
 
-			vim.api.nvim_create_autocmd({ "FileType" }, {
+			vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 				pattern = "svelte",
 				callback = function()
 					vim.treesitter.start()
