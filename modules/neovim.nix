@@ -224,12 +224,14 @@
         },
       })
 
-
-			-- Configure the LSP
-      local lspconfig = require('lspconfig')  
-			lspconfig.svelte.setup{}
-			lspconfig.tailwindcss.setup{}
-			lspconfig.ts_ls.setup{}
+			-- Enable Svelte
+			vim.lsp.enable('svelte')
+				
+			-- Enable TypeScript
+			vim.lsp.enable('ts_ls')
+			
+			-- Enable Tailwind (if using it)
+			vim.lsp.enable('tailwindcss')
 
 
 
