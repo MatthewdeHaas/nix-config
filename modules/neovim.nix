@@ -231,7 +231,15 @@
 				end,
 			})
 
+			vim.diagnostic.config({
+				virtual_text = false, -- No text at the end of the line
+				underline = false,    -- No red/yellow wavy lines
+				signs = false,        -- No icons in the left gutter (signcolumn)
+				update_in_insert = false,
+			})
+
 			vim.lsp.enable('svelte')	
+			vim.lsp.enable('ts_ls')
 
     '';
   };
