@@ -1,7 +1,17 @@
 { pkgs, ... }:
 
+let
+  # Create a combined treesitter package
+  myTreesitter = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+    p.svelte
+    p.javascript
+    p.typescript
+    p.css
+    p.html
+    p.lua
+  ]);
+in
 {
-
 	programs.neovim = {
 
 		enable = true;
@@ -23,23 +33,33 @@
 		];
 
 		plugins = with pkgs.vimPlugins; [
-			nvim-treesitter.withAllGrammars
-			telescope-nvim
-			plenary-nvim
+			# --- Grammar & Highlighting ---
+			myTreesitter  # Use the one we defined in the 'let' block
+			
+			# --- UI & Aesthetics ---
 			catppuccin-nvim
 			bufferline-nvim
 			nvim-web-devicons
-			markdown-preview-nvim
+			
+			# --- Navigation & Search ---
+			telescope-nvim
+			plenary-nvim
+			
+			# --- Mathematics & Docs ---
 			vimtex
-			luasnip
+			markdown-preview-nvim
+			
+			# --- Completion (Quiet Intelligence) ---
 			nvim-cmp
 			cmp-nvim-lsp
 			cmp_luasnip
-			nvim-lspconfig
+			luasnip
 		];
 
 		# Extra Neovim config
 		initLua = ''
+
+			vim.opt.runtimepath:prepend("${myTreesitter}")
 
 			-- Treesitter
 			local status, treesitter = pcall(require, "nvim-treesitter.configs")
