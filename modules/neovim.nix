@@ -224,16 +224,16 @@
         },
       })
 
-			-- Enable Svelte
-			vim.lsp.enable('svelte')
-				
-			-- Enable TypeScript
-			vim.lsp.enable('ts_ls')
-			
-			-- Enable Tailwind (if using it)
+			vim.api.nvim_create_autocmd({ "FileType" }, {
+				pattern = "svelte",
+				callback = function()
+					vim.treesitter.start()
+				end,
+			})
+
+			vim.lsp.enable('svelte')	
+			vim.lsp.enable('ts_ls')		
 			vim.lsp.enable('tailwindcss')
-
-
 
     '';
   };
