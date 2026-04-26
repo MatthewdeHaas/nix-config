@@ -14,8 +14,12 @@
 		extraPackages = with pkgs; [
 			ripgrep
 			fd
-			nodejs_20
+			nodejs_25
 			gcc
+			svelte-language-server
+			svelte-language-server
+			tailwindcss-language-server
+			typescript-language-server
 		];
 
 		plugins = with pkgs.vimPlugins; [
@@ -31,6 +35,7 @@
 			nvim-cmp
 			cmp-nvim-lsp
 			cmp_luasnip
+			nvim-lspconfig
 		];
 
 		# Extra Neovim config
@@ -40,7 +45,10 @@
 			local status, treesitter = pcall(require, "nvim-treesitter.configs")
 			if status then
 				treesitter.setup({
-					highlight = { enable = true }
+					highlight = { 
+					enable = true,
+					additional_vim_regex_highlighting = false,
+					}
 				})
 			else
 				print("Treesitter not found yet, will load via packadd")
@@ -210,6 +218,21 @@
 					svx = "markdown",
 				},
 			})
+			vim.filetype.add({
+        extension = {
+          svelte = "svelte",
+        },
+      })
+
+
+			-- Configure the LSP
+      local lspconfig = require('lspconfig')  
+			lspconfig.svelte.setup{}
+			lspconfig.tailwindcss.setup{}
+			lspconfig.ts_ls.setup{}
+
+
+
     '';
   };
 
