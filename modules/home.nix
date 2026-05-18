@@ -11,6 +11,7 @@
 		./eza.nix
 		./zathura.nix
 		./tex.nix
+		./jj.nix
 	];
 
 	home.username = "matthewdehaas";
