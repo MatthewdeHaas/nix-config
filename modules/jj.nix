@@ -8,7 +8,6 @@ let
 
     [ui]
     paginate = "never"
-    default-command = "log"
 		log-template = 'separate(" ", change_id.shortest(), if(empty, "(empty)"), if(conflict, "(conflict)"), description.first_line())'
 
     [aliases]
