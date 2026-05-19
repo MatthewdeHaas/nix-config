@@ -11,15 +11,7 @@
     [ui]
     paginate = "never"
     default-command = "log"
-		log-template = '''
-		separate(" ",
-			if(current_working_copy, "@", if(immutable, "◆", "○")),
-			change_id.shortest(),
-			if(empty, "(empty)"),
-			if(conflict, "(conflict)"),
-			description.first_line(),
-		) ++ "\n"
-		'''
+		log-template = "builtin_log_oneline"
 
     [aliases]
     l = ["log", "--no-pager"]
