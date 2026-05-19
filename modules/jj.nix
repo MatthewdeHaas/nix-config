@@ -11,7 +11,7 @@
     [ui]
     paginate = "never"
     default-command = "log"
-		log-template = "builtin_log_oneline"
+		log-template = "builtin_log_compact"
 
     [aliases]
     l = ["log", "--no-pager"]
