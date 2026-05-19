@@ -11,7 +11,7 @@
     [ui]
     paginate = "never"
     default-command = "log"
-		log-template = "builtin_log_compact"
+		log-template = "separate(\" \", if(current_working_copy, \"@\", if(immutable, \"◆\", \"○\")), change_id.shortest(), if(empty, \"(empty)\"), if(conflict, \"(conflict)\"), description.first_line()) ++ \"\\n\""
 
     [aliases]
     l = ["log", "--no-pager"]
