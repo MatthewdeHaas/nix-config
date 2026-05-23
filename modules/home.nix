@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
+
+	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"claude-code"
+	];
 
 	imports = [
 		./neovim.nix
@@ -48,6 +52,7 @@
 		cmake
 		meson
 		gcc
+		claude-code
 
 		# Security/Secrets
 		gnupg
