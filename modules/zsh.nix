@@ -120,6 +120,10 @@
 
 	};
 
+	programs.zsh.initExtra = ''
+		[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+	'';
+
 	# Set PATH based on flake file in a project directory 
 	programs.direnv = {
 		enable = true;
