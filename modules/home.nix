@@ -16,7 +16,6 @@
 		./zathura.nix
 		./tex.nix
 		./jj.nix
-		./hai-bridge.nix
 		./hai-toggle.nix
 	];
 
