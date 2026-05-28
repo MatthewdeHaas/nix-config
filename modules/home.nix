@@ -16,6 +16,7 @@
 		./zathura.nix
 		./tex.nix
 		./jj.nix
+		./hai-bridge.nix
 	];
 
 	home.username = "matthewdehaas";
