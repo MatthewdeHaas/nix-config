@@ -17,6 +17,7 @@
 		./tex.nix
 		./jj.nix
 		./hai-bridge.nix
+		./hai-toggle.nix
 	];
 
 	home.username = "matthewdehaas";
@@ -70,7 +71,6 @@
 		poppler
 		ghostscript
 		tesseract
-
 	];
 
 	# Security/Secrets manager
