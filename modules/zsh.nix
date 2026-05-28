@@ -32,6 +32,7 @@
 			c = "clear";
 			r = "Rscript";
 			ghostscript = "gs";
+			e = "exit";
 		};
 
 		# Shell history
