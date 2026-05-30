@@ -31,8 +31,8 @@
 			py = "python3";
 			c = "clear";
 			r = "Rscript";
-			ghostscript = "gs";
 			e = "exit";
+			cl = "claude";
 		};
 
 		# Shell history
