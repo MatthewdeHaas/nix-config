@@ -17,6 +17,7 @@
 		./tex.nix
 		./jj.nix
 		./hai-toggle.nix
+		./rust.nix
 	];
 
 	home.username = "matthewdehaas";
