@@ -121,12 +121,10 @@
 
 	};
 
-	programs.zsh.sessionVariables = {
-		PATH = "$HOME/.cargo/bin:$PATH";
-	};
 
 	programs.zsh.initExtra = ''
 		[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+		export PATH="$HOME/.cargo/bin:$PATH"
 	'';
 
 	# Set PATH based on flake file in a project directory 
