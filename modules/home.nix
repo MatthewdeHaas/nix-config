@@ -17,7 +17,6 @@
 		./tex.nix
 		./jj.nix
 		./hai-toggle.nix
-		./rust.nix
 	];
 
 	home.username = "matthewdehaas";
@@ -47,7 +46,6 @@
 		uv
 		R
 		solc
-		rustup
 
 		# Development Tools
 		git
