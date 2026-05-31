@@ -26,6 +26,7 @@
 
 		# Aliases
 		shellAliases = {
+			l = "ls";
 			nv = "nvim";
 			snv = "nvim --";
 			py = "python3";
