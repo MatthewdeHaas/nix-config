@@ -49,6 +49,7 @@
 
 		# Development Tools
 		git
+		gh
 		tmux
 		cmake
 		meson
