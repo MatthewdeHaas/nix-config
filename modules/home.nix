@@ -46,6 +46,7 @@
 		uv
 		R
 		solc
+		rustup
 
 		# Development Tools
 		git
