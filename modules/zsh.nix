@@ -121,6 +121,10 @@
 
 	};
 
+	programs.zsh.sessionVariables = {
+		PATH = "$HOME/.cargo/bin:$PATH";
+	};
+
 	programs.zsh.initExtra = ''
 		[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 	'';
