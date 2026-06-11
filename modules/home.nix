@@ -16,7 +16,6 @@
 		./zathura.nix
 		./tex.nix
 		./jj.nix
-		./hai-toggle.nix
 	];
 
 	home.username = "matthewdehaas";
