@@ -2,6 +2,10 @@
 
 {
 
+	home.sessionPath = [
+		"$HOME/.local/bin"
+	];
+
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"claude-code"
 	];
