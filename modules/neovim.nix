@@ -24,7 +24,7 @@ in
 		extraPackages = with pkgs; [
 			ripgrep
 			fd
-			nodejs_25
+			nodejs_22
 			gcc
 			svelte-language-server
 			svelte-language-server

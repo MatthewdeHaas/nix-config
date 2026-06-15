@@ -17,7 +17,7 @@
 		./tmux.nix
 		./git.nix
 		./eza.nix
-		./zathura.nix
+		# ./zathura.nix
 		./tex.nix
 		./jj.nix
 	];
@@ -43,7 +43,7 @@
 		pass
 
 		# Languages + Runtimes
-		nodejs_25
+		nodejs_22
 		pnpm
 		python314
 		uv
@@ -70,7 +70,7 @@
 		# Media Tools
 		ffmpeg
 		mpv
-		zathura
+		# zathura  # temporarily disabled — appstream build broken on macOS in current nixpkgs
 		poppler
 		ghostscript
 		tesseract
