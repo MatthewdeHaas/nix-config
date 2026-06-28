@@ -19,7 +19,7 @@ in
 
   xdg.configFile."jj/config.toml".source = jjConfig;
 
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     source <(COMPLETE=zsh jj)
   '';
 }
