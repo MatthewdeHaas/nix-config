@@ -43,6 +43,7 @@
 		pass
 
 		# Languages + Runtimes
+		rustup
 		nodejs_22
 		pnpm
 		python314
