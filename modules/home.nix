@@ -69,6 +69,7 @@
 
 		# Cloud Infrastructure
 		doctl
+		kubo
 
 		# Media Tools
 		ffmpeg
