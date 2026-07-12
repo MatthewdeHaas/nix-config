@@ -60,7 +60,12 @@
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.${nixUser} = import ./modules/home.nix;
+						home-manager.users.${nixUser} = {
+							imports = [
+								./modules/home.nix
+								./modules/hyprland.nix
+							];
+						};
 						home-manager.extraSpecialArgs = { user = nixUser; };
 					}
 				];
