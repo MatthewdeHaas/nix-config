@@ -68,50 +68,42 @@
 
 			nixswitch() {
 				local profile=''${1:-macbook}
-				home-manager switch --flake "$NIX_CONFIG_DIR#$profile"
+				home-manager switch --option warn-dirty false --flake "$NIX_CONFIG_DIR#$profile" &>/dev/null
 			}
 
 			nixsync() {
-				local OPTIND opt msg
+				local OPTIND opt
 				local commit_msg=""
 
 				while getopts "m:" opt; do
 					case $opt in
 						m) commit_msg="$OPTARG" ;;
-						*) echo "Usage: nixsync [-m 'message'] [profile]"; return 1 ;;
+						*) printf "\033[33musage:\033[0m nixsync [-m 'message'] [profile]\n"; return 1 ;;
 					esac
 				done
-
 				shift $((OPTIND - 1))
 				local target_profile="$1"
 
 				cd "$NIX_CONFIG_DIR" || return
 				git add .
 
-				if [[ -n "$target_profile" ]]; then
-					nixswitch "$target_profile"
+				printf "\033[34m⟳\033[0m switching...\n"
+				if nixswitch "$target_profile"; then
+					printf "\033[32m✓\033[0m switch complete\n"
 				else
-					nixswitch
-				fi
-
-				if [[ $? -ne 0 ]]; then
-					echo "--- Switch Failed! ---"
+					printf "\033[31m✗\033[0m switch failed\n"
 					return 1
 				fi
 
-				echo "-- Switch Successful! --"
-
 				if git diff-index --quiet HEAD --; then
-					echo "--- No changes detected. Nothing to commit. ---"
+					printf "\033[90m  no changes to commit\033[0m\n"
 				else
-					if [ -z "$commit_msg" ]; then
-						commit_msg="Sync $(date +'%Y-%m-%d %H:%M')"
-					fi
-					git commit -m "$commit_msg"
-					echo "--- Pushing change...s ---"
-					git push
+					[[ -z "$commit_msg" ]] && commit_msg="Sync $(date +'%Y-%m-%d %H:%M')"
+					git commit -qm "$commit_msg"
+					printf "\033[34m⟳\033[0m pushing...\n"
+					git push -q
+					printf "\033[32m✓\033[0m pushed \033[90m%s\033[0m\n" "$(git log -1 --format='%h %s')"
 				fi
-				echo "--- Done! ---"
 			}
 
 
