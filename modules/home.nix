@@ -47,7 +47,7 @@
 
 		# Languages + Runtimes
 		rustup
-		nodejs_24
+		nodejs_22
 		pnpm
 		python314
 		uv
