@@ -67,7 +67,7 @@
 			NIX_CONFIG_DIR="$HOME/nix-config"
 
 			nixswitch() {
-				local profile=''${1:-matthewdehaas}
+				local profile=''${1:-macbook}
 				home-manager switch --flake "$NIX_CONFIG_DIR#$profile"
 			}
 

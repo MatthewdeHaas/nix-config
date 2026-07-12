@@ -11,22 +11,49 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		# Hardware
+		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 	};
 
-	outputs = { self, nixpkgs, home-manager, ... }: {
-		homeConfigurations = {
+	outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }:
+		let
+			macUser = "matthewdehaas";
+			nixUser = "matt";
+		in 
+		{
 			# Mac OS 	
-			"matthewdehaas" = home-manager.lib.homeManagerConfiguration {
+			homeConfigurations."macbook" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-				modules = [ ./modules/home.nix ];
+				modules = [ 
+					./modules/home.nix 
+
+					# Let Home Manager install and manage itself (standalone mode only)
+					{ programs.home-manager.enable = true; }
+				];
+				extraSpecialArgs = { user = macUser; };
 			};
 
-			# NixOS
-			"manix" = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux;
-				modules = [ ./modules/home.nix ];
+			# ThinkPad + NixOS
+			nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+				modules = [
+					{ nixpkgs.hostPlatform = "x86_64-linux"; }
+					./hosts/thinkpad/configuration.nix
+					./hosts/thinkpad/hardware-configuration.nix
+					
+					# TODO: Change to actual machine model after purchase
+					nixos-hardware.nixosModules.common-pc-laptop
+					
+					home-manager.nixosModules.home-manager 
+
+					# Configure home manager in line here
+					{
+						home-manager.useGlobalPkgs = true;
+						home-manager.useUserPackages = true;
+						home-manager.users.${nixUser} = import ./modules/home.nix;
+						home-manager.extraSpecialArgs = { user = nixUser; };
+					}
+				];
 			};
-		};
-	};
-	
+		};	
 }

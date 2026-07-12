@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, user, ... }:
 
 {
 
@@ -22,8 +22,11 @@
 		./jj.nix
 	];
 
-	home.username = "matthewdehaas";
-	home.homeDirectory = "/Users/matthewdehaas";
+	home.username = user;
+	home.homeDirectory = 
+		if pkgs.stdenv.isDarwin
+		then "/Users/${user}"
+		else "/home/${user}";
 	home.stateVersion = "23.11";
 
 	# Global packages
@@ -62,11 +65,10 @@
 
 		# Security/Secrets
 		gnupg
-		pinentry_mac
+		(if pkgs.stdenv.isDarwin then pinentry_mac else pinentry-gnome3)
 
 		# Cloud Infrastructure
 		doctl
-		kubo
 
 		# Media Tools
 		ffmpeg
@@ -81,12 +83,10 @@
 	services.gpg-agent = {
 		enable = true;
 		defaultCacheTtl = 1800;
-		pinentry.package = pkgs.pinentry_mac;
-		extraConfig = ''
-			pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
-		'';
+		pinentry.package = 
+			if pkgs.stdenv.isDarwin
+			then pkgs.pinentry_mac
+			else pkgs.pinentry-gnome3;
 	};
 
-	# Let Home Manager install and manage itself 
-	programs.home-manager.enable = true;
 }
