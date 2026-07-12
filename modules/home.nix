@@ -2,14 +2,6 @@
 
 {
 
-	home.sessionPath = [
-		"$HOME/.local/bin"
-	];
-
-	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"claude-code"
-	];
-
 	imports = [
 		./neovim.nix
 		./zsh.nix
@@ -37,7 +29,6 @@
 		fzf
 		ripgrep
 		fd
-		htop
 		fastfetch
 		pstree
 		watch
@@ -55,9 +46,7 @@
 		solc
 
 		# Development Tools
-		git
 		gh
-		tmux
 		cmake
 		meson
 		gcc
@@ -89,5 +78,9 @@
 			then pkgs.pinentry_mac
 			else pkgs.pinentry-gnome3;
 	};
+
+	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"claude-code"
+	];
 
 }

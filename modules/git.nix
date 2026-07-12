@@ -13,7 +13,6 @@
 				signByDefault = true;
 				format = "openpgp";
 			};
-
 			init.defaultBranch = "main";
 			push.autoSetupRemote = true;
 			core.editor = "nvim";

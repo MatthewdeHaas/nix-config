@@ -43,9 +43,4 @@
 			mouse_reporting yes
 		'';
 		};
-
-	# Ensure font is available
-	home.packages = [
-		pkgs.nerd-fonts.jetbrains-mono # This is the modern, faster way to do it
-	];
 }

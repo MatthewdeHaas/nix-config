@@ -27,7 +27,6 @@ in
 			nodejs_22
 			gcc
 			svelte-language-server
-			svelte-language-server
 			tailwindcss-language-server
 			typescript-language-server
 		];

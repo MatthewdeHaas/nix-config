@@ -1,25 +1,24 @@
 { pkgs, ... }:
 
-let
-  jjConfig = pkgs.writeText "jj-config.toml" ''
-    [user]
-    name = "Matthew"
-    email = "mattdehaas28@gmail.com"
-
-    [ui]
-    paginate = "never"
-		log-template = 'separate(" ", change_id.shortest(), if(empty, "(empty)"), if(conflict, "(conflict)"), description.first_line())'
-
-    [aliases]
-    l = ["log", "--no-pager"]
-  '';
-in
 {
-  home.packages = [ pkgs.jujutsu ];
+	programs.jujutsu = {
+		enable = true;
+		settings = {
+			user = {
+				name = "Matthew";
+				email = "mattdehaas28@gmail.com";
+			};
+			ui = {
+				paginate = "never";
+				log-template = ''separate(" ", change_id.shortest(), if(empty, "(empty)"), if(conflict, "(conflict)"), description.first_line())'';
+			};
+			aliases = {
+				l = ["log" "--no-pager"];
+			};
+		};
+	};
 
-  xdg.configFile."jj/config.toml".source = jjConfig;
-
-  programs.zsh.initContent = ''
-    source <(COMPLETE=zsh jj)
-  '';
+	programs.zsh.initContent = ''
+		source <(COMPLETE=zsh jj)
+	'';
 }
