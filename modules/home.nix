@@ -67,6 +67,10 @@
 		poppler
 		ghostscript
 		tesseract
+	] ++ lib.optionals pkgs.stdenv.isLinux [
+		bluetui
+		protonvpn-cli
+		protonvpn-gui
 	];
 
 	# Security/Secrets manager

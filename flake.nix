@@ -14,19 +14,25 @@
 
 		# Hardware
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+		# Declarative disk partitioning
+		disko = {
+			url = "github:nix-community/disko";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }:
+	outputs = { self, nixpkgs, home-manager, nixos-hardware, disko, ... }:
 		let
 			macUser = "matthewdehaas";
 			nixUser = "matt";
-		in 
+		in
 		{
-			# Mac OS 	
+			# Mac OS
 			homeConfigurations."macbook" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-				modules = [ 
-					./modules/home.nix 
+				modules = [
+					./modules/home.nix
 
 					# Let Home Manager install and manage itself (standalone mode only)
 					{ programs.home-manager.enable = true; }
@@ -36,15 +42,19 @@
 
 			# ThinkPad + NixOS
 			nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+				specialArgs = { user = nixUser; };
 				modules = [
 					{ nixpkgs.hostPlatform = "x86_64-linux"; }
 					./hosts/thinkpad/configuration.nix
+					./hosts/thinkpad/disk.nix
 					./hosts/thinkpad/hardware-configuration.nix
-					
+
+					disko.nixosModules.disko
+
 					# TODO: Change to actual machine model after purchase
 					nixos-hardware.nixosModules.common-pc-laptop
-					
-					home-manager.nixosModules.home-manager 
+
+					home-manager.nixosModules.home-manager
 
 					# Configure home manager in line here
 					{
@@ -55,5 +65,5 @@
 					}
 				];
 			};
-		};	
+		};
 }
