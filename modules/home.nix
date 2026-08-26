@@ -47,8 +47,6 @@
 
 		# Development Tools
 		gh
-		cmake
-		meson
 		gcc
 		claude-code
 
