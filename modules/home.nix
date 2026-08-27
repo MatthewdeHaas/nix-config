@@ -47,7 +47,6 @@
 		# Development Tools
 		gh
 		gcc
-		claude-code
 
 		# Security/Secrets
 		gnupg
@@ -79,9 +78,5 @@
 			then pkgs.pinentry_mac
 			else pkgs.pinentry-gnome3;
 	};
-
-	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-		"claude-code"
-	];
 
 }

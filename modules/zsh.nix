@@ -65,4 +65,11 @@
 		enableZshIntegration = true;
 	};
 
+	# Silence direnv logs
+	programs.direnv.config = {
+		global = {
+			log_format = "";
+		};
+	};
+
 }
