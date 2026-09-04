@@ -34,6 +34,7 @@
 			r = "Rscript";
 			e = "exit";
 			cl = "claude";
+			t = "tmux";
 		};
 
 		# Shell history
