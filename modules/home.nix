@@ -37,8 +37,8 @@
 		pass
 
 		# Languages + Runtimes
-		nodejs_22
 		pnpm
+		bun
 		python314
 		uv
 		R
@@ -68,6 +68,13 @@
 		protonvpn-cli
 		protonvpn-gui
 	];
+		
+  nixpkgs.config.allowUnfree = true;
+  programs.claude-code = {
+    enable = true;
+    package = pkgs.claude-code;
+  };
+		
 
 	# Security/Secrets manager
 	services.gpg-agent = {
