@@ -4,7 +4,7 @@ final: prev: {
       src = prev.fetchFromGitHub {
         owner = "MatthewdeHaas";
         repo = "markdown-preview.nvim";
-        rev = "e55120e5ba5e0b7544857684a65fc831b7960cce";
+        rev = "9326a486bf56e7d247ecf4971ae3bbb74297a0ae";
         hash = "sha256-ExdsKBM+XSz86yNhyfIx0hrEMeBn4PPM8UoTcBYP2Kc=";
       };
     });
