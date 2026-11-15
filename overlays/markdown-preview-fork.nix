@@ -4,8 +4,8 @@ final: prev: {
       src = prev.fetchFromGitHub {
         owner = "MatthewdeHaas";
         repo = "markdown-preview.nvim";
-        rev = "9326a486bf56e7d247ecf4971ae3bbb74297a0ae";
-        hash = "sha256-ExdsKBM+XSz86yNhyfIx0hrEMeBn4PPM8UoTcBYP2Kc=";
+        rev = "6c5bea03e32874154e58ea5f24a07b6967b101ca";
+				hash = "sha256-7Dtkfr7ET9gKk512nra/CLweh+5nFtMlpmjThbDxS0A=";
       };
     });
   };
