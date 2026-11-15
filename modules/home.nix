@@ -14,6 +14,10 @@
 		./jj.nix
 	];
 
+
+	# Markdown preview fork for alphatab
+	nixpkgs.overlays = [ (import ../overlays/markdown-preview-fork.nix) ];
+
 	home.username = user;
 	home.homeDirectory = 
 		if pkgs.stdenv.isDarwin
@@ -85,5 +89,4 @@
 			then pkgs.pinentry_mac
 			else pkgs.pinentry-gnome3;
 	};
-
 }
